@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from "react";
+import ListItem from '../../components/Profile/ListItem';
 import { fetchProfile, fetchPublications } from '../../src/frontend/utils/api';
 
 
@@ -31,9 +32,7 @@ export default function Profile() {
         <div>
             {publications && console.log(publications)}
             {publications && publications.map((pub, index) => (
-              <div key={index}>
-                {pub.metadata.description}
-              </div>
+              <ListItem key={index} data={pub.metadata}/>
             ))}
         </div>
         </div>;
