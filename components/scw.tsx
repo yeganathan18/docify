@@ -4,6 +4,7 @@ import { ChainId } from "@biconomy/core-types";
 import SocialLogin from "@biconomy/web3-auth";
 import SmartAccount from "@biconomy/smart-account";
 import { Button } from "antd";
+import Router from "next/router";
 
 const Home = () => {
   const [provider, setProvider] = useState<any>();
@@ -25,6 +26,8 @@ const Home = () => {
       setProvider(web3Provider);
       const accounts = await web3Provider.listAccounts();
       setAccount(accounts[0]);
+      // store the account in local storage
+      localStorage.setItem("account", accounts[0]);
       return;
     }
     if (socialLoginSDK) {
@@ -87,11 +90,16 @@ const Home = () => {
       setScwAddress(context.baseWallet.getAddress());
       setSmartAccount(smartAccount);
       setScwLoading(false);
+
+      // store swa address and account in local storage
+      localStorage.setItem("scwAddress", context.baseWallet.getAddress());
+      Router.push("/home");
     }
     if (!!provider && !!account) {
       setupSmartAccount();
       console.log("Provider...", provider);
     }
+    
   }, [account, provider]);
 
   return (

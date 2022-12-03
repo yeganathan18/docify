@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import BetaCard from "../components/BetaCard";
 import FeedForm from "../components/FeedForm";
 import styles from "../styles/Home.module.css";
@@ -22,10 +23,9 @@ const Home = () => {
       <main className="grid grid-rows-2 grid-flow-col justify-items-center flex-1 py-14 gap-2">
         <div className="row-span-3 bg-blue-100 border-2 border-blue-400 rounded-xl">
           {/* <FeedForm /> */}
-          Form
         </div>
         <div className="col-span-2 bg-yellow-100 border-2 border-yello-400 rounded-xl py-4 px-8">
-            <BetaCard />
+          <BetaCard />
         </div>
       </main>
     </>
