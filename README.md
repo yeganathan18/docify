@@ -1,7 +1,13 @@
-<h1 align="center"><b>☘️ Docify</b></h1>
-<p align="center">
-  An open-source document verification system built on top of blockchain.
-</p>
+<div align="center">
+  <img src="./public/cover.png" height="140" alt="docify_cover" />
+</div>
+
+---
+
+<div align="center">
+  <p>An open-source document verification system built on top of blockchain.</p>
+</div>
+
 
 ## Getting Started
 
