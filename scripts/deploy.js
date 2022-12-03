@@ -4,23 +4,24 @@
 // You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
+const { providers } = require("ethers");
+const { ethers, getNamedAccounts } = require("hardhat");
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  // let provider = new ethers.providers.Web3Provider(web3.currentProvider);
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const MultiFactory = await hre.ethers.getContractFactory("MultiFactory");
 
-  await lock.deployed();
 
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+  // const provider = new ethers.providers.Web3Provider(window.ethereum , any);
+  // const signer = provider.getSigner();
+  // const address = await signer.getAddress();
+  const multifactory = await MultiFactory.deploy("0x8A5588C9dDF0db0E9d05F33846F3fB5f7DfF0D4b");
+  await  multifactory.deployed();
+
+  console.log(multifactory.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

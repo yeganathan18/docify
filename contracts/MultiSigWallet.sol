@@ -30,6 +30,10 @@ contract MultiSigWallet {
     // number of votes required to transaction to pass
     uint public required;
 
+    address public mainowner ;
+
+
+
     // array of transaction
     transaction[] public transactions;
     // mapping(txId => mapping(address_of_owner => yes/no)) public approve;
@@ -59,9 +63,10 @@ contract MultiSigWallet {
      * @dev contructor
      * @param _owners: array of owner addresses,_required: no of votes required
      */
-    constructor(address[] memory _owners, uint _required){
+    constructor(address[] memory _owners, uint _required , address _mainowner){
         require(_owners.length > 0, "onwers required");
         require(_required > 0 && _required <= _owners.length, "invalid required");
+        require(_mainowner !=  address(0), "No main owner present");
 
         for(uint i; i< _owners.length; i++){
             address owner = _owners[i];
@@ -81,6 +86,8 @@ contract MultiSigWallet {
      * _value: amount to send
      * _data: any data you want to send
      */
+
+    
     function submit(address _to, uint _value, bytes calldata _data) external onlyOwner{
         transactions.push(transaction({
             to:_to,

@@ -5,18 +5,22 @@ import "./MultiSigWallet.sol";
 
 contract MultiFactory{
     // factory contract onwer
-    address private immutable multiSigFactoryOwner;
+   //address private immutable multiSigFactoryOwner;
+
+      address  mainowner ; 
+       
 
     // struct to store all the data of MultiSigWallet and MultiFactory contract
     struct multiFactoryStruct {
         address[] onwers;
         uint required;
-        address multiSigFactoryOwner;
+
+        
     }
 
     // searching the struct data of MultiSigWallet and MultiSigWallet factory using owner address
     mapping(address => multiFactoryStruct) public allMultiSigWallet;
-
+    // Requestaddress 
     // owner address, onwer address will be used check which address own/create a new multisg wallet
     mapping(address => address) public searchByAddress;
 
@@ -26,9 +30,14 @@ contract MultiFactory{
     /**
      * @dev constructor to get the owner address of this contract factory
      */
-    constructor(address _multiSigFactoryOwner) {
-        multiSigFactoryOwner = _multiSigFactoryOwner;
-    }
+    // constructor() {
+       
+    // }
+
+
+    //allmultisigwallet[msg.sender] -> person interacting with our 
+    // contract 
+
 
     /**
      * @dev function to create the contract MultiSigWallet
@@ -37,7 +46,8 @@ contract MultiFactory{
         // Create a new Wallet contract
         MultiSigWallet multiSigWallet =  new MultiSigWallet(
             _onwers,
-            _required
+            _required ,
+            mainowner
         );
         // Increment the number of MultiSigWallet
         numOfMultiSigWallet++;
@@ -46,21 +56,27 @@ contract MultiFactory{
         allMultiSigWallet[msg.sender] = (
             multiFactoryStruct(
                 _onwers,
-                _required,
-                address(this)
+                _required
+    
             )
         );
 
         // search the profile by using owner address
         searchByAddress[msg.sender] = address(multiSigWallet);
     }
+ 
+
+    function setMainOwnerAddress  (address _mainowneraddress) public
+    {
+        mainowner =  _mainowneraddress ;
+    }
 
     // function to withdraw the fund from contract factory
-    function withdraw(uint256 amount) external payable {
-        require(msg.sender == multiSigFactoryOwner, "ONLY_ONWER_CAN_CALL_FUNCTION");
+    function withdrawRequest() public view  {
+        require(msg.sender == mainowner   , "ONLY_ONWER_CAN_CALL_FUNCTION");
         // sending money to contract owner
-        (bool success, ) = multiSigFactoryOwner.call{value: amount}("");
-        require(success, "TRANSFER_FAILED");
+       // (bool success, ) = mainowner.call{value: amount}("");
+        //require(success, "TRANSFER_FAILED");
     }
 
     // get the balance of the contract
@@ -74,9 +90,9 @@ contract MultiFactory{
     }
 
     // get the address of trustFactory contract owner
-    function getAddressOfMultiSigFactoryOwner() public view returns (address) {
-        return multiSigFactoryOwner;
-    }
+    // function getAddressOfMainOwner() public view returns (address) {
+    //     return mainowner;
+    // }
 
     // receive function is used to receive Ether when msg.data is empty
     receive() external payable {}
