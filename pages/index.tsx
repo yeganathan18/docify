@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { Suspense } from "react";
 
-const Index: NextPage = () => {
+const SignIn: NextPage = () => {
   const SocialLoginDynamic = dynamic(
     () => import("../components/scw").then((res) => res.default),
     {
@@ -23,4 +23,4 @@ const Index: NextPage = () => {
   );
 };
 
-export default Index;
+export default SignIn;
