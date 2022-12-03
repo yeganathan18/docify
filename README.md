@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center"><b>☘️ Docify</b></h1>
+<p align="center">
+  An open-source document verification system built on top of blockchain.
+</p>
 
 ## Getting Started
 
