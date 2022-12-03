@@ -97,12 +97,10 @@ const Home = () => {
   return (
     <>
       <main className="h-screen flex flex-col justify-center items-center">
-        <h1 className="">Web3 Auth</h1>
-
         <div className="flex flex-col justify-center items-center">
           {!account ? (
             <Button
-              className="bg-black !text-white !border-none"
+              className="bg-black !text-white !border-none w-44 hover:bg-slate-700"
               type="default"
               size="large"
               onClick={!account ? connectWeb3 : disconnectWeb3}
@@ -111,7 +109,7 @@ const Home = () => {
             </Button>
           ) : (
             <Button
-              className="bg-white !text-black !border-black"
+              className="bg-white !text-black !border-black w-44 hover:bg-slate-200"
               type="default"
               size="large"
               onClick={!account ? connectWeb3 : disconnectWeb3}
