@@ -1,9 +1,9 @@
-import styles from "../styles/Home.module.css";
 import { useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { ChainId } from "@biconomy/core-types";
 import SocialLogin from "@biconomy/web3-auth";
 import SmartAccount from "@biconomy/smart-account";
+import { Button } from "antd";
 
 const Home = () => {
   const [provider, setProvider] = useState<any>();
@@ -95,12 +95,31 @@ const Home = () => {
   }, [account, provider]);
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1>Biconomy SDK Next.js Web3Auth Example</h1>
-        <button onClick={!account ? connectWeb3 : disconnectWeb3}>
-          {!account ? "Connect Wallet" : "Disconnect Wallet"}
-        </button>
+    <>
+      <main className="h-screen flex flex-col justify-center items-center">
+        <h1 className="">Web3 Auth</h1>
+
+        <div className="flex flex-col justify-center items-center">
+          {!account ? (
+            <Button
+              className="bg-black !text-white !border-none"
+              type="default"
+              size="large"
+              onClick={!account ? connectWeb3 : disconnectWeb3}
+            >
+              Let&apos;s go!
+            </Button>
+          ) : (
+            <Button
+              className="bg-white !text-black !border-black"
+              type="default"
+              size="large"
+              onClick={!account ? connectWeb3 : disconnectWeb3}
+            >
+              Okay Bye 👋
+            </Button>
+          )}
+        </div>
 
         {account && (
           <div>
@@ -118,7 +137,7 @@ const Home = () => {
           </div>
         )}
       </main>
-    </div>
+    </>
   );
 };
 
