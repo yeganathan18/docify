@@ -18,7 +18,7 @@ async function main() {
   // const provider = new ethers.providers.Web3Provider(window.ethereum , any);
   // const signer = provider.getSigner();
   // const address = await signer.getAddress();
-  const multifactory = await MultiFactory.deploy("0x8A5588C9dDF0db0E9d05F33846F3fB5f7DfF0D4b");
+  const multifactory = await MultiFactory.deploy();
   await  multifactory.deployed();
 
   console.log(multifactory.address);

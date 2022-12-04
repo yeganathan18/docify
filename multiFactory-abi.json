@@ -1,0 +1,118 @@
+[
+    {
+"inputs": [
+    {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+    }
+  ],
+  "name": "allMultiSigWallet",
+  "outputs": [
+    {
+      "internalType": "uint256",
+      "name": "required",
+      "type": "uint256"
+    }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [
+    {
+      "internalType": "address[]",
+      "name": "_onwers",
+      "type": "address[]"
+    },
+    {
+      "internalType": "uint256",
+      "name": "_required",
+      "type": "uint256"
+    }
+  ],
+  "name": "createMultiSigWallet",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "inputs": [],
+  "name": "getAddressOfContract",
+  "outputs": [
+    {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+    }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [],
+  "name": "getContractBalance",
+  "outputs": [
+    {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+    }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [],
+  "name": "numOfMultiSigWallet",
+  "outputs": [
+    {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+    }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [
+    {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+    }
+  ],
+  "name": "searchByAddress",
+  "outputs": [
+    {
+      "internalType": "address",
+      "name": "",
+      "type": "address"
+    }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [
+    {
+      "internalType": "address",
+      "name": "_mainowneraddress",
+      "type": "address"
+    }
+  ],
+  "name": "setMainOwnerAddress",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "inputs": [],
+  "name": "withdrawRequest",
+  "outputs": [],
+  "stateMutability": "view",
+  "type": "function"
+}
+
+]
