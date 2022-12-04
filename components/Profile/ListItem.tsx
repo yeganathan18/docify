@@ -55,7 +55,7 @@ const ListItem = ({ data }) => {
           Apply
         </div>
       </div>
-      {noSBT ?<div className=" text-red-800">Please get the kyc sbt verified using polygon id!!!!!</div> : <></>}
+      {noSBT ?<div className=" ">Please get the kyc sbt verified using <a href="https://ur5ncf.csb.app/" rel="noreferrer" target="_blank" className="text-purple-800 underline">polygon id</a>!</div> : <></>}
     </div>
   );
 };
