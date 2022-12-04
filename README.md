@@ -32,6 +32,25 @@ Docify is a decentralized, transparent and tamper proof application for document
 * [ ] Design a page for user profile
 * [ ] Work on enterprise application
 
+## How to run the app 🏃‍♂️
+
+```bash
+
+# 1. Clone the repo
+git clone https://github.com/yeganathan18/docify.git
+
+# 2. Install dependencies
+cd docify
+yarn install
+
+# 3. Run the app, boom 💥
+yarn dev
+```
+
+## Deployments 🚀
+
+I hope the [vercel deployment](http://docify-three.vercel.app/) is live by the time you see, if not, you can still run the app locally.
+
 ## Contributing 🤝
 
 Pull requests are welcome. For major changes, please open an issue first
